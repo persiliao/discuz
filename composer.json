@@ -1,0 +1,28 @@
+{
+    "name": "persiliao/discuz",
+    "description": "Package Discuz",
+    "type": "library",
+    "license": "Apache License 2.0",
+    "keywords": [
+        "discuze"
+    ],
+    "authors": [
+        {
+            "name": "PersiLiao",
+            "email": "xiangchu.liao@gmail.com",
+            "homepage": "https://www.github.com/persiliao"
+        }
+    ],
+    "require": {
+        "php": ">=7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "PersiLiao\\Discuz\\": "src/"
+        },
+        "files": [
+            "src/helpers.php",
+            "src/constants.php"
+        ]
+    }
+}
