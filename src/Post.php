@@ -476,4 +476,10 @@ class Post{
     {
         return $this->comefrom;
     }
+
+    public function isBanned(): bool
+    {
+        return $this->status == 1;
+    }
+
 }

@@ -725,4 +725,13 @@ class Thread{
         return $this->displayorder == -2;
     }
 
+    public function isDeleted():bool
+    {
+        return $this->displayorder == -1;
+    }
+
+    public function isBanned():bool
+    {
+        return $this->post->isBanned();
+    }
 }
