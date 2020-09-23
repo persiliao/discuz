@@ -1506,7 +1506,7 @@ class User{
 
     public function allowEditThread():bool
     {
-        return $this->userPermission->allowEd() && $this->forumPermission->allowUploadImage($this);
+        return $this->forumPermission->allowUploadImage($this);
     }
 
     public function modNewThread():bool
