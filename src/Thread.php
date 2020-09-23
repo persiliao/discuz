@@ -42,7 +42,7 @@ class Thread{
     protected $price;
 
     /**
-     * @var int
+     * @var string
      */
     protected $author;
 
@@ -52,7 +52,7 @@ class Thread{
     protected $authorid;
 
     /**
-     * @var int
+     * @var string
      */
     protected $subject;
 
@@ -67,7 +67,7 @@ class Thread{
     protected $lastpost;
 
     /**
-     * @var int
+     * @var string
      */
     protected $lastposter;
 
@@ -192,7 +192,7 @@ class Thread{
     protected $replycredit;
 
     /**
-     * @var int
+     * @var string
      */
     protected $relatebytag;
 
@@ -202,7 +202,7 @@ class Thread{
     protected $maxposition;
 
     /**
-     * @var int
+     * @var string
      */
     protected $bgcolor;
 
@@ -431,9 +431,9 @@ class Thread{
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getAuthor(): int
+    public function getAuthor(): string
     {
         return $this->author;
     }
@@ -447,9 +447,9 @@ class Thread{
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getSubject(): int
+    public function getSubject(): string
     {
         return $this->subject;
     }
@@ -471,9 +471,9 @@ class Thread{
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getLastposter(): int
+    public function getLastposter(): string
     {
         return $this->lastposter;
     }
@@ -671,9 +671,9 @@ class Thread{
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getRelatebytag(): int
+    public function getRelatebytag(): string
     {
         return $this->relatebytag;
     }
@@ -687,9 +687,9 @@ class Thread{
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getBgcolor(): int
+    public function getBgcolor(): string
     {
         return $this->bgcolor;
     }

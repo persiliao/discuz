@@ -32,7 +32,7 @@ class Post{
     protected $reply;
 
     /**
-     * @var int
+     * @var string
      */
     protected $author;
 
@@ -42,7 +42,7 @@ class Post{
     protected $authorid;
 
     /**
-     * @var int
+     * @var string
      */
     protected $subject;
 
@@ -57,7 +57,7 @@ class Post{
     protected $message;
 
     /**
-     * @var int
+     * @var string
      */
     protected $useip;
 
@@ -127,7 +127,7 @@ class Post{
     protected $source;
 
     /**
-     * @var int
+     * @var string
      */
     protected $tags;
 
@@ -286,9 +286,9 @@ class Post{
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getAuthor(): int
+    public function getAuthor(): string
     {
         return $this->author;
     }
@@ -302,9 +302,9 @@ class Post{
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getSubject(): int
+    public function getSubject(): string
     {
         return $this->subject;
     }
@@ -326,9 +326,9 @@ class Post{
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getUseip(): int
+    public function getUseip(): string
     {
         return $this->useip;
     }
@@ -438,9 +438,9 @@ class Post{
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getTags(): int
+    public function getTags(): string
     {
         return $this->tags;
     }
@@ -476,6 +476,4 @@ class Post{
     {
         return $this->comefrom;
     }
-
-
 }
