@@ -6,6 +6,20 @@ namespace PersiLiao\Discuz\User;
 
 class Group{
 
+    const ADMIN = 1;
+
+    const SUPER_MODERATOR = 2;
+
+    const MODERATOR = 3;
+
+    const BAN_TALKING = 4;
+
+    const BAN_ACCESS = 5;
+
+    const BAN_IP = 6;
+
+    const GUEST = 7;
+
     /**
      * @var int
      */
