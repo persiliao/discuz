@@ -46,3 +46,13 @@ function theAdminUrl(string $action, string $operation = '', array $params = [])
 {
     echo adminUrl($action, $operation, $params);
 }
+
+function getCpLang(string $text):string
+{
+    return \cplang($text);
+}
+
+function theCpLang(string $text): void
+{
+    echo getCpLang($text);
+}
