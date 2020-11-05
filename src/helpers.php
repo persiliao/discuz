@@ -41,3 +41,8 @@ function adminUrl(string $action, string $operation = '', array $params = []): s
 
     return sprintf('/admin.php?%s', $queryStr);
 }
+
+function theAdminUrl(string $action, string $operation = '', array $params = []): void
+{
+    echo adminUrl($action, $operation, $params);
+}
