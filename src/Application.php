@@ -13,7 +13,9 @@ use function sprintf;
 
 abstract class Application{
 
-    final public static function execute(string $className)
+    abstract public static function doAction(string $className);
+
+    protected static function execute(string $className)
     {
         $controller = new $className;
         if(!$controller instanceof Controller){
@@ -33,7 +35,5 @@ abstract class Application{
     }
 
     abstract public static function getAction(): string;
-
-    abstract public static function doAction(string $className);
 
 }
