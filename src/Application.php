@@ -13,7 +13,7 @@ use function sprintf;
 
 abstract class Application{
 
-    final public static function doAction(string $className)
+    final public static function execute(string $className)
     {
         $controller = new $className;
         if(!$controller instanceof Controller){
