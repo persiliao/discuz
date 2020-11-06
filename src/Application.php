@@ -34,4 +34,6 @@ abstract class Application{
 
     abstract public static function getAction(): string;
 
+    abstract public static function doAction(string $className);
+
 }
