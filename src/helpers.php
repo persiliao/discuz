@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace PersiLiao\Discuz;
 
 use function array_filter;
-use function array_merge;
 use function explode;
 use function http_build_query;
 use function sprintf;
@@ -32,12 +31,15 @@ function unserializes(string $str): array
     return unserialize($str, [ 'allowed_classes' => '' ]);
 }
 
-function adminUrl(string $action, string $operation = '', array $params = []): string
+function adminUrl(string $action = '', string $operation = '', array $params = []): string
 {
-    $queryStr = http_build_query(array_merge([
-        'action' => $action,
-        'operation' => $operation
-    ], $params));
+    if(!empty($action)){
+        $params['action'] = $action;
+    }
+    if(!empty($operation)){
+        $params['operation'] = $operation;
+    }
+    $queryStr = http_build_query($params);
 
     return sprintf('/admin.php?%s', $queryStr);
 }
@@ -47,7 +49,7 @@ function theAdminUrl(string $action, string $operation = '', array $params = [])
     echo adminUrl($action, $operation, $params);
 }
 
-function getCpLang(string $text):string
+function getCpLang(string $text): string
 {
     return \cplang($text);
 }
