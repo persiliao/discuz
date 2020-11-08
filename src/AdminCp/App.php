@@ -20,6 +20,7 @@ class App extends Application{
         try{
             cpheader();
             doAction(Controller::HEADER_STYLE, self::getAction());
+            doAction(Controller::HEADER_SCRIPT, self::getAction());
             self::execute($className);
             doAction(Controller::FOOTER_SCRIPT, self::getAction());
         }catch(Exception|Error $e){
