@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace PersiLiao\Discuz\AdminCp;
 
 use function PersiLiao\Discuz\getCpLang;
+use function PersiLiao\Eventy\addAction;
+use function showtablerow;
 use function sprintf;
 
 class Form{
@@ -17,54 +19,48 @@ class Form{
      *
      * @return void
      */
-    public static function addField(string $type, string $field, $value, array $attr = []): void
+    public static function addField(string $title, string $type, string $field, $value, array $attr = []): void
     {
         switch($type){
             case 'editor':
             {
-                self::editor($field, $value, $attr);
+                self::editor($title, $field, $value, $attr);
             }
         }
     }
 
-    protected static function editor(string $field, string $value, array $attr): void
+    protected static function editor(string $title, string $field, string $value): void
     {
+        addAction(Controller::HEADER_SCRIPT, 'Form::ueditorScript');
         showtablerow('', [
             'class="td25"',
             'class="td28"'
         ], [
-            sprintf(' <textarea class="userData" name="%s" id="uchome-ttHtmlEditor" %s>%s</textarea>', $field, 'style="height: 100%; width: 100%; display: none; border: 0"', $value)
+            getCpLang($title),
+            sprintf('<script id="%1$s-container" name="%1$s" type="text/plain">%2$2</script>', $field, $value)
         ]);
-        showtablerow('', [
-            'class="td25"',
-            'class="td28"'
-        ], [
-            sprintf(' <iframe src="/home.php?mod=editor&charset=%s&allowhtml=1&isportal=0" name="uchome-ifrHtmlEditor" id="uchome-ifrHtmlEditor" scrolling="no" style="width:700px;height:400px;border:1px solid #C5C5C5;position:relative;" border=0 frameborder=0 ></iframe>', CHARSET),
-        ]);
+        addAction(Controller::FOOTER_SCRIPT, function() use ($field){
+            ?>
+            <script>
+                jQuery(document).ready(function(){
+                    var ue = UE.getEditor('<?php echo $field;?>-container', {initialFrameWidth: 1000});
+                });
+            </script>
+            <?php
+        });
     }
 
-    public static function addSubmit(string $field, string $value = 'submit', bool $haveEditor = false)
+    public static function ueditorScript()
     {
-        $onClick = 'onClick="adminCpSaveEditor(this);"';
-        showtablerow('', [
-            'class="td25"',
-            'class="td28"'
-        ], [
-            sprintf('<input id="submit_editsubmit" class="btn" type="submit" name="%s" value="%s" %s/>', $field, getCpLang($value), $haveEditor ? $onClick : '')
-        ]);
-    }
-
-    public static function getOnClickSubmit()
-    {
+        static $have_editor;
+        if($have_editor === true){
+            return;
+        }
+        $have_editor = true;
         ?>
-        <script>
-            function adminCpSaveEditor(obj){
-                edit_save();
-                window.onbeforeunload = null;
-                obj.form.submit();
-                return false;
-            }
-        </script>
+        <script src="static/webapp/js/jquery-3.1.0.min.js"></script>
+        <script type="text/javascript" src="/static/webapp/plugin/ueditor/ueditor.config.js"></script>
+        <script type="text/javascript" src="/static/webapp/plugin/ueditor/ueditor.all.js"></script>
         <?php
     }
 
