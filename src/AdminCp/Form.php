@@ -48,13 +48,11 @@ class Form{
         addAction(Controller::FOOTER_SCRIPT, function() use ($field, $attr){
             ?>
             <script>
-                jQuery(document).ready(function(){
-                    var ue = UE.getEditor('<?php echo $field;?>-container', <?php echo json_encode([
-                        'initialFrameWidth' => $attr['width'],
-                        'initialFrameHeight' => $attr['height'],
-                        'serverUrl' => $attr['api']
-                    ])?>);
-                });
+                var ue<?php echo $field;?> = UE.getEditor('<?php echo $field;?>-container', <?php echo json_encode([
+                    'initialFrameWidth' => $attr['width'],
+                    'initialFrameHeight' => $attr['height'],
+                    'serverUrl' => $attr['api']
+                ])?>);
             </script>
             <?php
         });
@@ -68,7 +66,6 @@ class Form{
         }
         $have_editor = true;
         ?>
-        <script type="text/javascript" src="vendor/persiliao/discuz/assets/js/jquery-3.1.0.min.js"></script>
         <script type="text/javascript" src="vendor/persiliao/discuz/assets/plugins/ueditor/ueditor.config.js"></script>
         <script type="text/javascript" src="vendor/persiliao/discuz/assets/plugins/ueditor/ueditor.all.js"></script>
         <?php
