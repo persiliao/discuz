@@ -36,7 +36,12 @@ class Form{
             'class="td25"',
             'class="td28"'
         ], [
-            getCpLang($title),
+            getCpLang($title)
+        ]);
+        showtablerow('', [
+            'class="td25"',
+            'class="td28"'
+        ], [
             sprintf('<script id="%1$s-container" name="%1$s" type="text/plain">%2$2</script>', $field, $value)
         ]);
         addAction(Controller::FOOTER_SCRIPT, function() use ($field){
