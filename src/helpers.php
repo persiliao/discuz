@@ -51,7 +51,7 @@ function theAdminUrl(string $action, string $operation = '', array $params = [])
 
 function getCpLang(string $text): string
 {
-    return \cplang($text);
+    return cplang($text);
 }
 
 function theCpLang(string $text): void
