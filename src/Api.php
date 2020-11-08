@@ -23,10 +23,9 @@ class Api extends Application{
     public static function doAction(string $className)
     {
         try{
-            doAction(self::API_BEFORE, $className);
+            doAction(self::API_BEFORE);
             $data = self::execute($className);
-            $data = applyFilters(self::API_AFTER, $className, $data);
-            doAction(self::API_AFTER, $className, $data);
+            doAction(self::API_AFTER, applyFilters(self::API_AFTER, $data));
         }catch(Exception|Error $e){
             exit(static::serialize([
                 'code' => -1,
