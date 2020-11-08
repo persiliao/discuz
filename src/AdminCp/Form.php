@@ -31,7 +31,7 @@ class Form{
 
     protected static function editor(string $title, string $field, string $value): void
     {
-        addAction(Controller::HEADER_SCRIPT, 'Form::ueditorScript');
+        addAction(Controller::HEADER_SCRIPT, '\PersiLiao\Discuz\AdminCp\Form::ueditorScript');
         showtablerow('', [
             'class="td25"',
             'class="td28"'
@@ -58,7 +58,7 @@ class Form{
         }
         $have_editor = true;
         ?>
-        <script src="static/webapp/js/jquery-3.1.0.min.js"></script>
+        <script type="text/javascript" src="static/webapp/js/jquery-3.1.0.min.js"></script>
         <script type="text/javascript" src="/static/webapp/plugin/ueditor/ueditor.config.js"></script>
         <script type="text/javascript" src="/static/webapp/plugin/ueditor/ueditor.all.js"></script>
         <?php
