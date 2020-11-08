@@ -189,7 +189,7 @@ abstract class UEditor extends Controller{
 
     final public function config(): string
     {
-        return json_encode($this->config, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        exit(json_encode($this->config, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
     }
 
     abstract public function uploadImage();
