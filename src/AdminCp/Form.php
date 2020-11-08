@@ -31,7 +31,7 @@ class Form{
 
     protected static function editor(string $title, string $field, string $value): void
     {
-        addAction(Controller::HEADER_SCRIPT, '\PersiLiao\Discuz\AdminCp\Form::ueditorScript');
+        addAction(Controller::FOOTER_SCRIPT, '\PersiLiao\Discuz\AdminCp\Form::ueditorScript');
         showtablerow('', [
             'class="td25"',
             'class="td28"'
