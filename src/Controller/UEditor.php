@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PersiLiao\Discuz\AdminCp\Controller;
+namespace PersiLiao\Discuz\Controller;
 
-use PersiLiao\Discuz\AdminCp\Controller;
+use PersiLiao\Discuz\Controller;
 
 use function json_encode;
 
