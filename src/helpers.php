@@ -31,7 +31,7 @@ function unserializes(string $str): array
     return unserialize($str, [ 'allowed_classes' => '' ]);
 }
 
-function adminUrl(string $action = '', string $operation = '', array $params = []): string
+function adminUrl(string $action = '', string $operation = '', array $params = [], bool $haveAdmin = true): string
 {
     if(!empty($action)){
         $params['action'] = $action;
@@ -41,7 +41,11 @@ function adminUrl(string $action = '', string $operation = '', array $params = [
     }
     $queryStr = http_build_query($params);
 
-    return sprintf('/admin.php?%s', $queryStr);
+    if($haveAdmin){
+        return sprintf('/admin.php?%s', $queryStr);
+    }
+
+    return sprintf('%s', $queryStr);
 }
 
 function theAdminUrl(string $action, string $operation = '', array $params = []): void
