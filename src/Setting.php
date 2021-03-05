@@ -10,7 +10,11 @@ class Setting{
     {
         global $_G;
 
-        return $_G['setting'][$key] ?: '';
+        if(isset($_G['setting'][$key])){
+            return $_G['setting'][$key];
+        }
+
+        return null;
     }
 
 }
